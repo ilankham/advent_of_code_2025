@@ -16,14 +16,14 @@ class AoCTester:
         """ removes all test case """
         self.test_cases = []
 
-    def run_tests(self, test_function: Callable) -> None:
+    def run_tests(self, test_function: Callable, **kwargs) -> None:
         """ output the results of running all test cases """
         if not self.test_cases:
             print("WARNING! There are no test cases to run.\n")
         for test_case in self.test_cases:
             data = test_case[0]
             expected_output = test_case[1]
-            actual_output = test_function(data)
+            actual_output = test_function(data, **kwargs)
             outputs_equal = expected_output == actual_output
             print(f'{data[:5]=}')
             print(f'{expected_output=}')
